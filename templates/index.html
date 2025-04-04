@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Removed html2pdf.js script as it's no longer needed -->
+    <title>Expert Doctor</title>
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <!-- Stethoscope icon (inline SVG) -->
+          <img src="https://media.istockphoto.com/id/1200712144/vector/medic-stethoscope-concept-logotype-template-design-business-logo-icon-shape-medic.jpg?s=612x612&w=0&k=20&c=O3Tem0JD-Xn3oJi6x3hIh2hrd0F8COzUh5LvkLj9Zbw=" alt="Icon" width="60" height="60">
+          <h1>Expert Doctor</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#emergency" id="emergencyLink">Emergency</a></li>
+            <li><a href="#stores">Near Hospitals</a></li>
+            <li><a href="http://127.0.0.1:3000/templates/Abbout.html">About Us</a></li>
+            <li><a href="#" id="myInfoBtn">My Information</a></li>
+            <li><a href="#" id="signOutBtn" class="signout-link hidden">Sign Out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="heroSection">
+      <div class="hero-content">
+        <h2 id="heroGreeting">Modernizing our</h2>
+        <h2>healthcare services</h2>
+        <p>
+          Expert Doctor introduces innovative models(Machine learning Model) to transform the way customers,
+          consumers, and healthcare providers experience medical care.
+          Click below option to get your e-prescription.
+        </p>
+        <button id="openModalBtn" class="btn">Get Started →</button>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80"
+             alt="Healthcare Professional" class="max-w-[400px] rounded-3xl shadow-lg" />
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured" id="stores">
+      <h3>Featured</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>24/7 Emergency Care</h4>
+          <p>Round-the-clock medical assistance when you need it most.</p>
+        </div>
+        <div class="card clickable">
+          <h4>Near Hospitals</h4>
+          <p>Find pharmacies within 50km radius of your location.</p>
+        </div>
+        <div class="card clickable"> <!-- Added clickable class -->
+          <h4>Previous Medical Records</h4>
+          <p>Access and manage your complete medical history.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="about">
+      <h3>Our Team</h3>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="static/image copy.png" alt="Team_Member_1" style="width: 220px;height: 200px;">
+          <div>
+            <h4>N. Gayatri</h4>
+            <a href="https://www.linkedin.com/in/gayatri-nutubilli-43363b298" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="static/image copy 2.png" alt="Team_Member_1" style="width: 220px;height: 200px;">
+          <div>
+            <h4>L. Nikitha</h4>
+            <a href="https://www.linkedin.com/in/nikitha-lenka-95b443290" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post-Login Section (Hidden initially) -->
+    <section id="postLogin" class="hidden">
+      <h2>Hello <span id="userName"></span>, get started by entering your emergency</h2>
+      <button id="emergencyBtn" class="btn">Enter your emergency</button>
+    </section>
+
+    <!-- Modal for Authentication (Login & Registration) -->
+    <div class="modal-auth hidden" id="authContainer">
+      <div class="modal-box">
+        <div class="auth-inner">
+          <!-- Login Panel -->
+          <div class="form-container login-container">
+            <button class="close-btn" id="closeModalBtn">×</button>
+            <form id="loginForm" method="post">
+              <h2>Login</h2>
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" name="loginEmail" placeholder="Email" required>
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+              <button type="submit">Login</button>
+            </form>
+          </div>
+    
+          <!-- Registration Panel with Scroll -->
+          <div class="form-container register-container">
+            <button class="close-btn" id="regCloseBtn">×</button>
+            <div class="scrollable-content">
+              <!-- Registration Step 1 -->
+              <form id="regStep1" method="post">
+                <h2>Register (Step 1)</h2>
+                <label for="regName">Name</label>
+                <input type="text" id="regName" name="regName" placeholder="Enter your name" required>
+                <label for="regAge">Age</label>
+                <input type="number" id="regAge" name="regAge" placeholder="Enter age (15-60)" min="15" max="60" required>
+                <div class="phone-group">
+                  <label for="regPhone">Phone</label>
+                  <span>+91</span>
+                  <input type="tel" id="regPhone" name="regPhone" placeholder="Optional phone" maxlength="10">
+                </div>
+                <label for="regEmail">Email</label>
+                <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email (required)" required>
+                <label for="regWeight">Weight</label>
+                <input type="number" id="regWeight" name="regWeight" placeholder="Enter your weight (kg)" required>
+                <label for="regPincode">Pincode</label>
+                <input type="text" id="regPincode" name="regPincode" placeholder="Enter your pincode" maxlength="6" required>
+                <div id="pincodeInfo" class="pincode-info hidden"></div>
+                <button type="button" id="continueBtn">Continue</button>
+              </form>
+    
+              <!-- Registration Step 2 -->
+              <form id="regStep2" class="hidden" method="post">
+                <h2>Register (Step 2)</h2>
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" name="regPassword" placeholder="Create Password" required>
+                <label for="regConfirm">Confirm Password</label>
+                <input type="password" id="regConfirm" name="regConfirm" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+              </form>
+            </div>
+          </div>
+    
+          <!-- Overlay toggles -->
+          <div class="overlay-container">
+            <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>If you already have an account, please login.</p>
+                <button class="ghost" id="loginToggleBtn">Login</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                <h1>New User?</h1>
+                <p>Create New Account Here!!!</p>
+                <button class="ghost" id="registerToggleBtn">Register</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- End .auth-inner -->
+      </div><!-- End .modal-box -->
+    </div><!-- End .modal-auth -->
+
+    <!-- Emergency Modal for "Enter your problem" -->
+    <div id="emergencyModal" class="modal-auth hidden">
+      
+      <div class="modal-box">
+        <div class="modal-content">
+          <h2>Enter Symptoms</h2>
+          <button class="close-btn" id="starttyping">×</button>
+          <form id="predictForm">
+            <div class="symptom-input-container">
+              <input 
+                type="text" 
+                id="symptomInput" 
+                placeholder="Start typing symptoms (e.g., itching)..."
+                autocomplete="off"
+              >
+              <div id="suggestions" class="suggestions-dropdown"></div>
+            </div>
+            <button type="submit">Get Prescription</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Modal (hidden until prediction returns) -->
+    <div class="modal-auth hidden" id="resultModal">
+      <div class="modal-box">
+        <button class="close-btn" id="resultCloseBtn">×</button>
+        <div class="modal-content">
+          <h2>Prediction Result</h2>
+          <div class="result-grid">
+            <div class="result-labels">
+              <p><strong>Disease:</strong></p>
+              <p><strong>Description:</strong></p>
+              <p><strong>Precautions:</strong></p>
+              <p><strong>Medications:</strong></p>
+              <p><strong>Workouts:</strong></p>
+              <p><strong>Diets:</strong></p>
+            </div>
+            <div class="result-values" id="resultValues">
+              <!-- Filled dynamically by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medical Records Section -->
+    <section class="medical-records hidden" id="medicalRecords">
+      <h2>Medical Records</h2>
+      <div class="records-container" id="recordsContainer">
+        <!-- Records will be added here dynamically -->
+      </div>
+    </section>
+
+    <!-- Prescription Modal -->
+    <div class="modal-auth hidden" id="prescriptionModal">
+      <div class="modal-box prescription-box">
+        <button class="close-btn" id="prescriptionCloseBtn">×</button>
+        <div class="modal-content prescription-content">
+          <h2 class="prescription-title">e-Prescription</h2>
+          <div class="prescription-header">
+            <div class="prescription-meta">
+              <p><strong>Date:</strong> <span id="prescriptionDate"></span></p>
+              <p><strong>Patient Name:</strong> <span id="prescriptionName"></span></p>
+              <p><strong>Weight:</strong> <span id="prescriptionWeight"></span></p>
+            </div>
+          </div>
+          <div class="diagnosis-section">
+            <h3>Patient Diagnosis</h3>
+            <p><strong>Disease:</strong> <span id="prescriptionDisease"></span></p>
+            <p><strong>Description:</strong> <span id="prescriptionDescription"></span></p>
+          </div>
+          <div class="medications-section">
+            <h3>Medications</h3>
+            <ul id="prescriptionMeds"></ul>
+          </div>
+          <div class="lifestyle-section">
+            <h3>Lifestyle Recommendations</h3>
+            <p><strong>Workout:</strong> <span id="prescriptionWorkout"></span></p>
+            <p><strong>Diets:</strong> <span id="prescriptionDiet"></span></p>
+            <p><strong>Precautions:</strong> <span id="prescriptionPrecautions"></span></p>
+          </div>
+          <div class="prescription-footer">
+            <a href="#" id="downloadPrescription" class="download-link">
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Information Modal -->
+    <div class="modal-auth hidden" id="myInfoModal">
+      <div class="modal-box">
+        <button class="close-btn" id="myInfoCloseBtn">×</button>
+        <div class="modal-content">
+          <h2>My Information</h2>
+          <p><strong>Name:</strong> <span id="infoName"></span></p>
+          <p><strong>Age:</strong> <span id="infoAge"></span></p>
+          <p><strong>Phone No:</strong> <span id="infoPhone"></span></p>
+          <p><strong>Email:</strong> <span id="infoEmail"></span></p>
+          <p><strong>Weight:</strong> <span id="infoWeight"></span></p>
+          <p><strong>Pincode:</strong> <span id="infoPincode"></span></p>
+          <button id="changePasswordBtn" class="btn">Change Password</button>
+          <button id="medicalRecordsBtn" class="btn">Medical Records</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pharmacy Modal for Near Pharmacies Search -->
+    <div class="modal-auth hidden" id="pharmacyModal">
+      <div class="modal-box">
+        <button class="close-btn" id="pharmacyCloseBtn">×</button>
+        <div class="modal-content">
+          <h2>Find Nearby Hospitals</h2>
+          <form id="pharmacyForm">
+            <input type="text" id="pharmacyPincode" placeholder="Enter your pincode" required>
+            <button type="submit" class="btn">Search</button>
+          </form>
+          <div id="pharmacyResults"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="static/script.js"></script>
+    {% if predicted_disease %}
+    <!-- Hidden container for prediction data; not visible on front page -->
+    <div id="predictionData" style="display: none;">
+      <p class="predicted-disease">{{ predicted_disease }}</p>
+      <p class="description">{{ dis_des }}</p>
+      <div class="precautions">
+        {% for item in my_precautions %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </div>
+      <div class="medications">
+        {% for med in medications %}
+          <li>{{ med }}</li>
+        {% endfor %}
+      </div>
+      <div class="workouts">
+        {% for w in workout %}
+          <li>{{ w }}</li>
+        {% endfor %}
+      </div>
+      <div class="diets">
+        {% for d in my_diet %}
+          <li>{{ d }}</li>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </body>
+</html>

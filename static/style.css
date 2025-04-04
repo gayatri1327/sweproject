@@ -1,0 +1,1033 @@
+/**************************************************************
+ * GLOBAL RESET & BASE SETTINGS
+ **************************************************************/
+/* Reset default margin, padding, and box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styling for the body element */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #E6F0FF;
+}
+
+/**************************************************************
+ * NAVIGATION BAR STYLES
+ **************************************************************/
+/* Navbar container fixed at the top with shadow and padding */
+header .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Logo styles and its heading */
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo h1 {
+  color: #012B5D;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+/* Navigation list styling */
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin-left: 1.5rem;
+}
+nav ul li a {
+  color: #012B5D; /* Default link color */
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.6rem 0.8rem;  /* Reduced padding */
+  margin: 0 0.2rem;        /* Reduced horizontal margin */
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects for navigation links */
+nav ul li a:hover {
+  color: #012B5D; /* Retain original color */
+  background-color: rgba(1, 43, 93, 0.1); /* Light background on hover */
+  text-shadow: 0 0 8px rgba(1, 43, 93, 0.7); /* Subtle glow effect */
+  transform: scale(1.05); /* Slight pop-up effect */
+}
+
+/* Specific styling for sign out link */
+.signout-link {
+  color: red;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none !important;
+}
+
+/**************************************************************
+ * HERO SECTION STYLES
+ **************************************************************/
+/* Container for hero section content and image */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 2rem 2rem;
+  margin-top: 80px;
+}
+
+/* Hero content (text) container */
+.hero-content {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: #012B5D;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.125rem;
+  color: #2D2D2D;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Styling for pincode details displayed in grid format */
+.pincode-details {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+.pincode-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.pincode-label {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 70px;
+  text-align: right;
+}
+/* Add colon after pincode label text */
+.pincode-label::after {
+  content: ":";
+  margin-left: auto;
+}
+
+/* Signature block styling in hero section */
+.signature-block {
+  margin-top: 2rem;
+  border-top: 2px solid #0047BB;
+  padding-top: 1rem;
+  text-align: right;
+}
+.signature {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.8rem;
+  color: #0047BB;
+  margin: 0;
+}
+
+/* Governance note styling */
+#governanceNote {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 1rem 0;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+#signatureTitle {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+.signature-title {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Button styling in hero section */
+.btn {
+  background-color: #0047BB;
+  color: #fff;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #003D9E;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Hero image styling */
+.hero-image img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/**************************************************************
+ * FEATURED SECTION STYLES
+ **************************************************************/
+/* Container for featured content */
+.featured {
+  padding: 2rem;
+}
+.featured h3 {
+  font-size: 1.5rem;
+  color: #012B5D;
+  margin-bottom: 1.5rem;
+}
+
+/* Card grid layout */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual card styling */
+.card {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.card h4 {
+  font-size: 1.25rem;
+  color: #012B5D;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  color: #2D2D2D;
+}
+/* Pointer cursor for clickable cards */
+.card.clickable {
+  cursor: pointer;
+}
+
+/**************************************************************
+ * TEAM SECTION STYLES
+ **************************************************************/
+/* Container for team section */
+.team {
+  background: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.team h3 {
+  font-size: 1.5rem;
+  color: #012B5D;
+  margin-bottom: 1rem;
+}
+
+/* Grid layout for team members */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Individual team member styling */
+.team-member {
+  display: flex;
+  align-items: center;
+}
+.team-member img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/**************************************************************
+ * POST-LOGIN SECTION STYLES
+ **************************************************************/
+/* Container for post-login content */
+#postLogin {
+  padding: 2rem;
+  margin-top: 80px;
+}
+
+/**************************************************************
+ * MODAL & AUTHENTICATION STYLES
+ **************************************************************/
+/* Overlay for modal authentication screens */
+.modal-auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Pincode information tooltip styling */
+.pincode-info {
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.pincode-info strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Modal box container */
+.modal-box {
+  position: relative;
+  background: #fff;
+  width: 700px;
+  max-width: 95%;
+  min-height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Close button for modals */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+.close-btn:hover {
+  color: #444;
+}
+
+/* Container for inner modal content */
+.auth-inner {
+  flex: 1;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Form container for login/register */
+.form-container {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 80%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+/* Login container settings */
+.login-container {
+  left: 0;
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 2;
+}
+/* Register container settings */
+.register-container {
+  padding: 1.5rem;
+  left: 50%;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+}
+/* Form styles */
+form {
+  width: 110%;
+  height: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+form h2 {
+  color: #012B5D;
+  margin-bottom: 0.5rem;
+}
+form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+form button {
+  padding: 0.75rem;
+  border: none;
+  background: #0047BB;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #003D9E;
+}
+
+/* Additional styles for register container overflow */
+.register-container {
+  position: relative;
+  max-height: 80vh; /* Limit height */
+  overflow: hidden; /* Hide overflow */
+}
+/* Scrollable content inside register container */
+.scrollable-content {
+  overflow-y: auto; /* Enable vertical scroll */
+  max-height: calc(80vh - 100px); /* Account for header/footer */
+  padding-right: 15px; /* Prevent content shift */
+}
+/* Positioning of close button inside register container */
+.register-container .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+/* Scrollbar styling for scrollable content */
+.scrollable-content::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollable-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Phone input group styling */
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.phone-group span {
+  background: #eee;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+/* Hide registration step 2 initially */
+#regStep2.hidden {
+  display: none;
+}
+
+/* Overlay container for sliding animation in modal */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease;
+  z-index: 100;
+}
+.overlay {
+  background: linear-gradient(to right, #0047BB, #003D9E);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.6s ease;
+}
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.6s ease;
+}
+.overlay-left {
+  transform: translateX(-20%);
+  left: 0;
+}
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Ghost button style for overlay panel */
+.ghost {
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+.ghost:hover {
+  background: #fff;
+  color: #0047BB;
+}
+
+/* Sliding animation classes when modal is active */
+.modal-box.right-panel-active .login-container {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.modal-box.right-panel-active .register-container {
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 5;
+}
+.modal-box.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+.modal-box.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+.modal-box.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+.modal-box.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/**************************************************************
+ * MODAL CONTENT & ADDITIONAL MODAL STYLES
+ **************************************************************/
+/* Generic modal content styling */
+.modal-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #012B5D;
+}
+/* Input styling within modal content */
+.modal-content input[type="text"],
+.modal-content input[type="search"] {
+  width: 80%;
+  padding: 0.75rem;
+  align-items: center;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+/* Button style within modal content */
+.modal-content button.btn {
+  margin-top: 1rem;
+}
+
+/* Specific styles for "My Information" modal */
+#myInfoModal .modal-content p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Pharmacy modal form styling */
+#pharmacyModal .modal-content form {
+  margin-bottom: 1rem;
+}
+#pharmacyModal .modal-content #pharmacyResults {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Result modal styling */
+#resultModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+#resultModal .modal-box {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.result-grid {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.result-labels, .result-values {
+  flex: 1;
+  padding: 1rem;
+}
+.result-labels p {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.result-values p, .result-values ul {
+  margin-bottom: 1rem;
+}
+.result-values ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* Optional navigation link glow effect */
+nav ul li a {
+  transition: text-shadow 0.3s ease;
+}
+
+/**************************************************************
+ * PRESCRIPTION & PDF STYLES
+ **************************************************************/
+/* Container for prescription modal */
+.prescription-box {
+  max-width: 700px;
+  max-height: 90vh;
+}
+.prescription-content {
+  padding: 2rem;
+  overflow-y: auto;
+}
+.prescription-title {
+  color: #0047BB;
+  border-bottom: 2px solid #0047BB;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+/* Section headings for prescription details */
+.diagnosis-section h3,
+.medications-section h3,
+.lifestyle-section h3 {
+  color: #0047BB;
+  margin: 1.5rem 0 1rem;
+}
+/* Medications list styling */
+.medications-section ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+/* Download link styling for prescription */
+.download-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #0047BB;
+  color: white !important;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.download-link:hover {
+  background: #003D9E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,71,187,0.2);
+}
+
+/* Additional signature styling */
+.signature {
+  text-align: right;
+  color: #0047BB;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+/* Medical Records Section */
+.medical-records {
+  padding: 2rem;
+  background: white;
+  margin: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.record-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+.record-prescription {
+  white-space: pre-wrap;
+}
+.download-prescription {
+  color: #0047BB;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Print styles for prescription modal */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #prescriptionModal, #prescriptionModal * {
+    visibility: visible;
+  }
+  #prescriptionModal * {
+    color: inherit !important;
+  }
+  #prescriptionModal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    box-shadow: none;
+  }
+}
+
+/* Prescription Modal Specific Styles */
+#prescriptionModal {
+  background: white !important;
+  color: #333 !important;
+}
+#prescriptionModal h2 {
+  color: #0047BB !important;
+}
+#prescriptionModal strong {
+  color: #0047BB !important;
+}
+
+/* Record item styles for medical records */
+.record-item {
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.record-disease {
+  color: #0047BB !important;
+  font-size: 1.1rem;
+}
+.record-details p {
+  margin: 0.5rem 0;
+}
+.no-records {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+/* Delete record button styling */
+.delete-record {
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 0 8px;
+  line-height: 1;
+}
+.delete-record:hover {
+  transform: scale(1.2);
+}
+/* Record header alignment */
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/**************************************************************
+ * EMERGENCY MODAL STYLES
+ **************************************************************/
+/* Styling for emergency modal box */
+#emergencyModal .modal-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 3rem 2rem;  /* Increased vertical padding */
+  width: 600px;
+  min-height: 400px;   /* Minimum height for rectangle */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Form layout inside emergency modal */
+#predictForm {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+  flex: 1;
+}
+
+/* Emergency modal header styling */
+.modal-content h2 {
+  color: #0047BB;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  position: relative;
+  padding-bottom: 1rem;
+}
+.modal-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #0047BB;
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+/* Symptoms input area styling in emergency modal */
+#symptoms {
+  min-height: 150px;  /* Increased height */
+  padding: 1.5rem;
+  resize: vertical;
+}
+#symptoms:focus {
+  outline: none;
+  border-color: #0047BB;
+  box-shadow: 0 0 0 3px rgba(0, 71, 187, 0.1);
+  background: #ffffff;
+}
+#symptoms::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Submit button styling inside emergency modal */
+#predictForm button[type="submit"] {
+  margin-top: auto;    /* Push button to bottom */
+  padding: 1.2rem;
+}
+#predictForm button[type="submit"]:hover {
+  background: #003D9E;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 71, 187, 0.2);
+}
+#predictForm button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Symptom input container and suggestions dropdown */
+.symptom-input-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0.5rem auto;
+}
+#symptomInput {
+  width: 70%;
+  padding: 0.5rem;
+  border: 2px solid #0047BB;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background: #f8faff;
+  transition: all 0.3s ease;
+}
+#symptomInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 71, 187, 0.1);
+}
+.suggestions-dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e0e7ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  display: none;
+  z-index: 1000;
+}
+.suggestion-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+}
+.suggestion-item:hover {
+  background: #f8faff;
+  transform: translateX(5px);
+}
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+/**************************************************************
+ * PHARMACY & HOSPITAL RESULTS STYLES
+ **************************************************************/
+/* PDF styling for prescription document */
+.prescription-pdf {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+}
+.prescription-pdf h2 {
+  color: #0047BB;
+  border-bottom: 2px solid #0047BB;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.prescription-pdf ul {
+  padding-left: 20px;
+}
+.signature {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #0047BB;
+  text-align: right;
+}
+.download-btn {
+  background: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+/* Hospital result card styling */
+.hospital-result {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.hospital-result h4 {
+  color: #0047BB;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.hospital-details p {
+  margin: 0.5rem 0;
+  color: #2d2d2d;
+}
+.hospital-details strong {
+  color: #2c3e50;
+  min-width: 80px;
+  display: inline-block;
+}
+
+/* Error and no-results messages */
+.error {
+  color: #e74c3c;
+  padding: 1rem;
+  text-align: center;
+}
+.no-results {
+  color: #f39c12;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Pharmacy results container and scrollbar styling */
+#pharmacyResults {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+#pharmacyResults::-webkit-scrollbar {
+  width: 8px;
+}
+#pharmacyResults::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+#pharmacyResults::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+#pharmacyResults::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
